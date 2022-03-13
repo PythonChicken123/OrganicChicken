@@ -1,0 +1,1 @@
+chrome-extension://kkkldohdhcfhpjchcefpkfhjfeapdmek/app/shared/shared.min.js

@@ -1,0 +1,122 @@
+/*Style for bullets*/
+.wpse-bullet {
+    list-style: none !important;
+}
+
+[class^="wpsebul-"] > li:before, [class*=" wpsebul-"] > li:before{
+    font-family: 'dashicons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align: middle;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.wpsebul-pushpin li:before {
+    content: "\f109"
+}
+.wpsebul-cofg li:before {
+    content: "\f111"
+}
+.wpsebul-flag li:before {
+    content: "\f227"
+}
+.wpsebul-star li:before {
+    content: "\f155"
+}
+.wpsebul-checkmark li:before {
+    content: "\f147"
+}
+.wpsebul-minus li:before {
+    content: "\f460"
+}
+.wpsebul-plus li:before {
+    content: "\f132"
+}
+.wpsebul-play li:before {
+    content: "\f522"
+}
+.wpsebul-arrow li:before {
+    content: "\f344"
+}
+.wpsebul-cross li:before {
+    content: "\f153"
+}
+.wpsebul-warning li:before {
+    content: "\f534"
+}
+.wpsebul-circle li:before {
+    content: "\f159"
+}
+.wpsebul-help li:before {
+    content: "\f223"
+}
+.wpsebul-info li:before {
+    content: "\f348"
+}
+.entry-content a.wpsebtn {
+    text-decoration: none;
+    -webkit-appearance: inherit !important;
+    box-shadow: none;
+}
+.wpsebtn:hover {
+    box-shadow: none;
+}
+.csColumn, .csColumnGap {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/*Summary*/
+div ul.tableOfContent {
+    font-family: Arial;
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+ul.tableOfContent li.toc-level1 ul.tableOfContent {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+ul.tableOfContent li {
+    list-style-type: none;
+    padding: 3px;
+}
+ul.tableOfContent a {
+    color: #2089c0;
+    text-decoration: none;
+    box-shadow: none;
+    border-bottom: none;
+}
+ul.tableOfContent a:hover {
+    color: #196a94;
+    text-decoration: none;
+    box-shadow: none;
+}
+ul.tableOfContent li.toc-level1 a {
+    font-size: 18px;
+    font-weight: bold;
+}
+ul.tableOfContent li.toc-level2 a {
+    font-size: 16px;
+    font-weight: bold;
+}
+ul.tableOfContent li.toc-level3 a {
+    font-size: 14px;
+    font-weight: normal;
+}
+ul.tableOfContent li.toc-level4 a {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.wpsetips_qtip {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+}

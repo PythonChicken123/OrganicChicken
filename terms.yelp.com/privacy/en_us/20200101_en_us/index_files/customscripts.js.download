@@ -1,0 +1,139 @@
+/*
+ * Theme Name: one wpversion
+*/
+
+/*----------------------------------------------------
+/* Responsive Navigation
+/*--------------------------------------------------*/
+jQuery(document).ready(function($){
+    /*$('.primary-navigation').append('<div id="mobile-menu-overlay" />');*/
+  	$('#pull').attr('aria-expanded', 'false');
+    $('.custom-logo-link').attr('tabindex', '-1');
+    $('.menu-item-type-custom').children().attr('tabindex', '-1');
+
+    $('.toggle-mobile-menu').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('body').toggleClass('mobile-menu-active');
+        $('#pull').attr('aria-expanded', 'true');
+        $('.custom-logo-link').removeAttr('tabindex');
+        $('.menu-item-type-custom').children().removeAttr('tabindex');
+
+        if ( $('body').hasClass('mobile-menu-active') ) {
+            if ( $(document).height() > $(window).height() ) {
+                var scrollTop = ( $('html').scrollTop() ) ? $('html').scrollTop() : $('body').scrollTop();
+                $('html').addClass('noscroll').css( 'top', -scrollTop );
+            }
+            /*$('#mobile-menu-overlay').fadeIn();*/
+        } else {
+            var scrollTop = parseInt( $('html').css('top') );
+            $('html').removeClass('noscroll');
+            $('html,body').scrollTop( -scrollTop );
+            /*$('#mobile-menu-overlay').fadeOut();*/
+        }
+    });
+}).on('click', function(event) {
+
+    var $target = jQuery(event.target);
+    if ( ( $target.hasClass("one-icon") && $target.parent().hasClass("toggle-caret") ) ||  $target.hasClass("toggle-caret") ) {// allow clicking on menu toggles
+        return;
+    }
+    jQuery('body').removeClass('mobile-menu-active');
+    jQuery('#pull').attr('aria-expanded', 'false');
+  	jQuery('.custom-logo-link').attr('tabindex', '-1');
+    jQuery('.menu-item-type-custom').children().attr('tabindex', '-1');
+    jQuery('html').removeClass('noscroll');
+    /*jQuery('#mobile-menu-overlay').fadeOut();*/
+});
+
+/*----------------------------------------------------
+/*  Dropdown menu
+/* ------------------------------------------------- */
+jQuery(document).ready(function($) {
+    
+    function onepageilyDropdownMenu() {
+        var wWidth = $(window).width();
+        if(wWidth > 865) {
+            $('#navigation ul.sub-menu, #navigation ul.children').hide();
+            var timer;
+            var delay = 100;
+            $('#navigation li').hover( 
+              function() {
+                var $this = $(this);
+                timer = setTimeout(function() {
+                    $this.children('ul.sub-menu, ul.children').slideDown('fast');
+                }, delay);
+                
+              },
+              function() {
+                $(this).children('ul.sub-menu, ul.children').hide();
+                clearTimeout(timer);
+              }
+            );
+        } else {
+            $('#navigation li').unbind('hover');
+            $('#navigation li.active > ul.sub-menu, #navigation li.active > ul.children').show();
+        }
+    }
+
+    onepageilyDropdownMenu();
+
+    $(window).resize(function() {
+        onepageilyDropdownMenu();
+    });
+});
+
+/*---------------------------------------------------
+/*  Vertical menus toggles
+/* -------------------------------------------------*/
+jQuery(document).ready(function($) {
+
+    $('.widget_nav_menu, #navigation .menu').addClass('toggle-menu');
+    $('.toggle-menu ul.sub-menu, .toggle-menu ul.children').addClass('toggle-submenu');
+    $('.toggle-menu ul.sub-menu').parent().addClass('toggle-menu-item-parent');
+
+    $('.toggle-menu .toggle-menu-item-parent').append('<span class="toggle-caret"><i class="one-icon icon-plus"></i></span>');
+
+    $('.toggle-caret').click(function(e) {
+        e.preventDefault();
+        $(this).parent().toggleClass('active').children('.toggle-submenu').slideToggle('fast');
+    });
+});
+
+/*----------------------------------------------------
+/* Back to top smooth scrolling
+/*--------------------------------------------------*/
+jQuery(document).ready(function($) {
+    jQuery('a[href=#top]').click(function(){
+        jQuery('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+});
+
+/*----------------------------------------------------
+/* Hide header on Android and iOS app
+/*--------------------------------------------------*/
+jQuery(document).ready(function($) {
+  var standAlone = window.navigator.standAlone;
+  var userAgent = window.navigator.userAgent.toLowerCase();
+
+  if (/mobile/i.test(userAgent)) { 
+    /* Apple devices */
+    if (/ipod|iphone|ipad/i.test(userAgent)) {
+    	if (!/safari|crios/i.test(userAgent)) {
+        	$('#site-header').css('display','none');
+    	}
+    } 
+
+    /* Android devices */
+    if (/android/i.test(userAgent)) {
+		if(/wv|version/i.test(userAgent)) {
+          	$('#site-header').css('display','none');
+      	}
+    }
+  }
+  
+  if (/yelpwebview|yelpbizapp/i.test(userAgent)) {
+    $('#site-header').css('display','none');
+  }
+});

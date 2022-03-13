@@ -1,0 +1,1 @@
+chrome-extension://kkkldohdhcfhpjchcefpkfhjfeapdmek/assets/img/icon/svg/toggle-check.svg

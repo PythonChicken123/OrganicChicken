@@ -1,0 +1,1 @@
+chrome-extension://kkkldohdhcfhpjchcefpkfhjfeapdmek/app/expired_lightning_upgrade/expired_lightning_upgrade.min.js
